@@ -13,47 +13,52 @@ import Footer from "../components/Footer.astro";
 
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-  <body>
-    <div class="relative h-full w-full bg-slate-950">
-      <div class="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]"></div>
-    </div>
-    <Header></Header>
-    <slot />
-    <Footer></Footer>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body <div class="absolute top-0 z-[-2] min-h-full w-full bg-neutral-950 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>>
+		<Header></Header>
+		<slot />
+		<Footer></Footer>
+
+	</body>
+
 </html>
-
 <style is:global>
-  :root {
-    color-scheme: light dark;
-  }
+	:root {
+		color-scheme: light dark;
+	}
+	html {
+		font-family: 'Quicksand Variable', sans-serif;
+		scroll-behavior: smooth;
+	}
+	body{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-height: 100vh;
+	}
 
-  html {
-    font-family: 'Quicksand Variable', sans-serif;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 100vh;
-	background: #000;
-    background-color: #fff; /* Fondo predeterminado */
-    color: #333; /* Color de texto predeterminado */
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
+    @media (prefers-color-scheme: light) {
+        body {
+            color: #ffffff; /* Color de texto para el modo claro */
+        }
     }
-  }
+
+    @media (prefers-color-scheme: dark) {
+        body {
+            color: #000000; /* Color de texto para el modo oscuro */
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+    }
 </style>
