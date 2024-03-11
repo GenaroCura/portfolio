@@ -1,0 +1,32 @@
+---
+import ExperiencieItem from "./ExperiencieItem.astro";
+
+const EXPERIENCE = [
+  {
+    date: "Agosto 2023 - Enero 2024",
+    title: "Certificado Henry Bootcamp, +800hs de programación",
+    description:"",
+    link:"https://d2rf2c6bvm78n9.cloudfront.net/new-cert?id=52e3170e01bf16c0f5ebc8dca3d8f7f7677715f82763cc162aad19c2c915546a"
+  },
+  {
+    date: "Actualidad - 2024",
+    title: "Desarrollador Web Full Stack",
+    description:"En busca de mi primer empleo"
+  }
+];
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700 ml-3">
+    {
+      EXPERIENCE.map((experience) => (
+        <li class="mb-10 ms-4">
+          <ExperiencieItem
+              title={experience.title}
+              description={experience.description}
+              date={experience.date}
+              link={experience.link}
+            />
+        </li>
+      ))
+    }
+  </ol>

@@ -1,0 +1,91 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Badge from "../components/Badge.astro";
+import GitHub from "../components/icons/GitHub.astro";
+import LinkedIn from "../components/icons/LinkedIn.astro";
+import Redes from "../components/Redes.astro";
+import Gmail from "../components/icons/Gmail.astro";
+import Experience from "../components/Experience.astro";
+import BriefCase from "../components/icons/BriefCase.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import Proyects from "../components/Proyects.astro";
+import ProjectIcon from "../components/icons/ProjectsIcon.astro";
+import SobreMiIcon from "../components/icons/SobreMiIcon.astro";
+import ContactIcon from "../components/icons/ContactIcon.astro";
+import Contact from "../components/Contact.astro";
+import SobreMi from "../components/SobreMi.astro";
+---
+
+<Layout title="Portfolio Web - Genaro Curá desarrollador y programador Web">
+  <main class="px-4">
+    <SectionContainer id="Inicio" class="py-44 pb-24">
+      <img
+        class="w-16 h-16 rounded-full mx-4 mb-3"
+        src="/portfolioFoto.png"
+        alt="Gena Foto"
+      />
+      <h1
+        class="text-3xl md:text-4xl lg:text-4xl font-bold text-white flex flex-row gap-x-4 pb-6 lg:pb-10"
+      >
+        Hola, Soy Genaro Curá
+        <a
+          href="https://www.linkedin.com/in/genaro-cura-7275581ba/"
+          target="_blank"
+          rel="noopener"
+          class="flex justify-center items-center"
+          ><Badge>Disponible para trabajar</Badge></a
+        >
+      </h1>
+      <h2 class="text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px]">
+        Un apasionado <span class="text-yellow-600">Desarrollador Web de Argentina.</span> Mi camino en el mundo del desarrollo web está impulsado por la curiosidad y el deseo constante de aprender y mejorar.
+      </h2>
+
+      <nav class="flex gap-4 mt-8 flex-wrap">
+        <Redes href="https://github.com/GenaroCura">
+          <GitHub class="size-3 md:size-6" />
+          GitHub
+        </Redes>
+        <Redes href="https://www.linkedin.com/in/genaro-cura-7275581ba/">
+          <LinkedIn class="size-3 md:size-6" />
+          LinkedIn
+        </Redes>
+        <Redes href="mailto:genacura4@gmail.com">
+          <Gmail class="size-3 md:size-6" />
+          genacura4@gmail.com
+        </Redes>
+      </nav>
+    </SectionContainer>
+    <SectionContainer id="experiencia" class="py-10 pb-5">
+      <h2
+        class="text-3xl font-semibold text-white mb-5 flex gap-x-3 items-center"
+      >
+        <BriefCase class="size-7" />
+        Experiencia
+      </h2>
+      <Experience />
+    </SectionContainer>
+    <SectionContainer id="proyectos" class="py-10 pb-5">
+      <h2
+        class="text-3xl font-semibold text-white mb-5 flex gap-x-3 items-center"
+      >
+        <ProjectIcon class="size-7" />
+        Proyectos
+      </h2>
+      <Proyects />
+    </SectionContainer>
+    <SectionContainer id="sobre-mí"class="py-10 pb-5">
+      <h2 class="text-3xl font-semibold text-white mb-5 flex gap-x-3 items-center">
+        <SobreMiIcon class="size-7"/>
+        Sobre mí</h2>
+        <SobreMi/>
+    </SectionContainer>
+    <SectionContainer id="contacto" class="py-10 pb-5">
+      <h2 class="text-3xl font-semibold text-white mb-5 flex gap-x-3 items-center">
+        <ContactIcon class="size-6"/>
+        Contacto
+      </h2>
+      <Contact/>
+    </SectionContainer>
+  </main>
+</Layout>

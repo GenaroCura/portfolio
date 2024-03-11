@@ -1,0 +1,103 @@
+---
+import React from "../components/icons/React.astro";
+import JavaScript from "../components/icons/JavaScript.astro";
+import Postgres from "../components/icons/Postgres.astro";
+import CSS from "../components/icons/CSS.astro";
+import Vite from "../components/icons/Vite.astro";
+import GitHub from "./icons/GitHub.astro";
+import Web from "./icons/Web.astro";
+import Tailwind from "./icons/Taildwind.astro";
+
+const TAGS = {
+  REACT: {
+    name: "React",
+    class: "bg-black text-sky-300",
+    icon: React,
+  },
+  JAVASCRIPT: {
+    name: "Javascript",
+    class: "bg-black text-yellow-300",
+    icon: JavaScript,
+  },
+  POSTGRES: {
+    name: "PostgresSQL",
+    class: "bg-black text-sky-300",
+    icon: Postgres,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-black text-sky-300",
+    icon: CSS,
+  },
+  VITE: {
+    name: "Vite",
+    class: "bg-black text-violet-300",
+    icon: Vite,
+  },
+  TAILWIND: {
+    name: "Tailwind",
+    class: "bg-black text-sky-300",
+    icon: Tailwind,
+  }
+};
+
+const PROJECTS = [
+  {
+    title: "PI-VIDEOGAMES",
+    description:
+      "Desarrollé de forma individual una aplicación web durante el bootcamp de Henry, utilizando la API RAWG. La plataforma permite a los usuarios buscar, filtrar, crear, ordenar y visualizar detalles de videojuegos. Destacando habilidades en desarrollo web y gestión de API.",
+    link: "https://pi-videogames-zeta.vercel.app/",
+    github: "https://github.com/GenaroCura/PI-VIDEOGAMES",
+    image: "/PI-VIDEOGAMES.png",
+    tags: [TAGS.REACT, TAGS.JAVASCRIPT, TAGS.POSTGRES, TAGS.CSS, TAGS.VITE],
+  },
+  {
+    title: "APOLO LIBRERÍA",
+    description:"Proyecto final del bootcamp de henry. Participé en el desarrollo grupal de un e-commerce totalmente funcional, contribuyendo especialmente en la implementación del backend. Creamos desde cero una API , configuramos la base de datos y trabajamos con el equipo de frontend para lograr un resultado integral.",
+    link:"https://bookstore-e-commerce-z27y.onrender.com/",
+    github:"https://github.com/EcommerceProyect/BookStore-E-commerce",
+    image:"/apolo.png",
+    tags:[TAGS.REACT ,TAGS.JAVASCRIPT,TAGS.POSTGRES,TAGS.VITE, TAGS.TAILWIND],
+  }
+];
+---
+
+{
+  PROJECTS.map(({ image, title, description, tags, github, link }) => (
+    <article key={title}>
+      <h3 class="text-2xl font-semibold text-yellow-700 mb-2 mt-6">{title}</h3>
+      <p class="text-md mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-4 flex-row">
+        {tags.map((tag, index) => (
+          <li key={index}>
+            <span
+              class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 bg-black/20 backdrop-blur-lg`}
+            >
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img
+        class="size-3/4  justify-center rounded-xl mt-4 mb-4  bg-black/20"
+        src={image}
+        alt={`Captura de pantalla del proyecto ${title}`}
+      />
+      <ul class="text-sm cursor-pointer text-slate-50 flex flex-wrap gap-4 items-center justify-start">
+        <li class="flex fltransition-all hover:translate-x-1 duration-150  bg-black/20 backdrop-blur-lg rounded-full py-1 px-2">
+          <a class="flex items-center ml-2" href={github} target="_blank">
+            Repositorio de GitHub
+            <GitHub class="size-6 ml-2"/>
+          </a>
+        </li>
+        <li class="flex fltransition-all hover:translate-x-1 duration-150  bg-black/20 backdrop-blur-lg rounded-full py-1 px-2">    
+          <a class="flex" href={link} target="_blank" rel="noopener">
+            Sitio web
+            <Web class="size-6 ml-2" />
+          </a>
+        </li>
+      </ul>
+    </article>
+  ))
+}
