@@ -63,13 +63,13 @@ const PROJECTS = [
 ---
 
 {
-  PROJECTS.map(({ image, title, description, tags, github, link }) => (
-    <article key={title}>
-      <h3 class="text-2xl font-semibold text-yellow-700 mb-2 mt-6">{title}</h3>
-      <p class="text-md mb-4 text-pretty">{description}</p>
+  PROJECTS.map((project, index) => (
+    <article data-key={`${index}-${project.title}`}>
+      <h3 class="text-2xl font-semibold text-yellow-700 mb-2 mt-6">{project.title}</h3>
+      <p class="text-md mb-4 text-pretty">{project.description}</p>
       <ul class="flex gap-x-4 flex-row">
-        {tags.map((tag, index) => (
-          <li key={index}>
+        {project.tags.map((tag, tagIndex) => (
+          <li data-key={tagIndex}>
             <span
               class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 bg-black/20 backdrop-blur-lg`}
             >
@@ -81,18 +81,18 @@ const PROJECTS = [
       </ul>
       <img
         class="size-3/4  justify-center rounded-xl mt-4 mb-4  bg-black/20"
-        src={image}
-        alt={`Captura de pantalla del proyecto ${title}`}
+        src={project.image}
+        alt={`Captura de pantalla del proyecto ${project.title}`}
       />
       <ul class="text-sm cursor-pointer text-slate-50 flex flex-wrap gap-4 items-center justify-start">
         <li class="flex fltransition-all hover:translate-x-1 duration-150  bg-black/20 backdrop-blur-lg rounded-full py-1 px-2">
-          <a class="flex items-center ml-2" href={github} target="_blank">
+          <a class="flex items-center ml-2" href={project.github} target="_blank">
             Repositorio de GitHub
             <GitHub class="size-6 ml-2"/>
           </a>
         </li>
         <li class="flex fltransition-all hover:translate-x-1 duration-150  bg-black/20 backdrop-blur-lg rounded-full py-1 px-2">    
-          <a class="flex" href={link} target="_blank" rel="noopener">
+          <a class="flex" href={project.link} target="_blank" rel="noopener">
             Sitio web
             <Web class="size-6 ml-2" />
           </a>
